@@ -22,6 +22,58 @@ public LinkedNode next;
 
     	  }
 
+/*differnt approach , reverse the linked list and then compare the origin one with the reversed one ,space complexity */
+   public static LinkedNode reverseList(LinkedNode head){
+
+    	  if(head.next==null||head==null)
+    	   return head;
+    	  if(head.next.next==null)
+    	  {
+    	  head.next.next=head;
+    	  LinkedNode newHead=head.next;
+    	  head.next=null;
+    	  return newHead;
+    	  }
+    	  LinkedNode cur=head;
+    	  LinkedNode pur=head.next;
+    	  LinkedNode eur=head.next.next;
+    	  pur.next=cur;
+    	  cur.next=null;
+    	  while(eur!=null){
+    	  cur=pur;
+    	  pur=eur;
+    	  eur=eur.next;
+    	  pur.next=cur;
+    	  }
+    	  return pur;
+    	  }
+
+/*using stack based iterative approach*/
+/*suppose we don't know the size of the linkedlist*/
+   public static Boolean  isp(LinkedNode head){
+
+LinkedNode slow=head;
+LinkedNode fast=head;
+Stack<Integer> fstHalf = new Stack<Integer>();
+while(fast!=null&&fast.next!=null){
+fstHalf.push(slow.data);
+slow=slow.next;
+fast=fast.next.next;
+}
+/*skip middle elements if the length is odd*/
+if(fast!=null)
+   slow=slow.next;
+
+while(slow!=null){
+
+if(fstHalf.pop()!=slow.data)
+   return false;
+slow=slow.next;
+}
+return true;
+
+}
+
 public static void main(String [] args){
 
 LinkedNode head = new LinkedNode();
