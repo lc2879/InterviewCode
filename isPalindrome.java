@@ -1,6 +1,6 @@
-public static class isPalindrome{
+public  class isPalindrome{
 
-public class LinkedNode{
+public static class LinkedNode{
 
 public int data;
 public LinkedNode next;
@@ -47,6 +47,22 @@ public LinkedNode next;
     	  }
     	  return pur;
     	  }
+
+
+/*recursive approach to reverse a list*/
+    public static LinkedNode revList(LinkedNode head){
+		if(head==null||head.next==null) return head;
+                LinkedNode cur=revList(head.next);
+                head.next.next=head;
+                head.next=null;
+               return cur;   
+}
+
+
+
+	
+		
+
 
 /*using stack based iterative approach*/
 /*suppose we don't know the size of the linkedlist*/
