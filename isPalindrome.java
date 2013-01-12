@@ -26,9 +26,10 @@ public LinkedNode next;
 		if(head.next.next==null&&head.data==head.next.data) return true;
 		LinkedNode slow=head;
 		LinkedNode fast=head;
-		LinkedNode tmp;
+		LinkedNode tmp=head.next;
 		while(fast!=null && fast.next!=null){
 			fast=fast.next.next;
+			LinkedNode helper=tmp.next	
 			tmp = slow
 			slow=slow.next;
 			
@@ -140,3 +141,47 @@ System.out.println("the linked list is palindrome: "+isPdrome(head,len));
 
 
 }
+
+-public class rmDups{
+-
+-   public static class LinkedNode{
+-
+-	    	  public int data;
+-	    	  public LinkedNode next;
+-
+-	    	  public LinkedNode()
+-	    	  {}
+-	    	  
+-	    	  }
+-public static void rmDuplicate(LinkedNode head){
+-if(head==null)return;
+-HashSet<Integer> ele = new HashSet<Integer>();
+-LinkedNode cur=head;
+-ele.add(cur.data);
+-while(cur.next!=null){
+-
+-if(ele.contains(cur.next.data)){
+-cur.next=cur.next.next;
+-continue;
+-}
+-else{
+-   ele.add(cur.next.data);
+-   cur=cur.next;
+-}
+-}
+-
+-}
+-
+-public static void main (String [] args){
++public class rmdups{
+ 
++public class LinkNode{
+ 
++   private int data;
++   public LinkNode next;
++   public int get()
++  { return data;
++}
+ }
+ 
+
