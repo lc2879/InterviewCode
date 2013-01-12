@@ -21,6 +21,21 @@ public LinkedNode next;
               else return false;
 
     	  }
+	public static Boolean isPdrome1(LinkedNode head){
+		if(head==null||head.next==null) return true;
+		if(head.next.next==null&&head.data==head.next.data) return true;
+		LinkedNode slow=head;
+		LinkedNode fast=head;
+		LinkedNode tmp;
+		while(fast!=null && fast.next!=null){
+			fast=fast.next.next;
+			tmp = slow
+			slow=slow.next;
+			
+
+
+
+
 
 /*differnt approach , reverse the linked list and then compare the origin one with the reversed one ,space complexity */
    public static LinkedNode reverseList(LinkedNode head){
