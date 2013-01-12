@@ -27,16 +27,32 @@ public LinkedNode next;
 		LinkedNode slow=head;
 		LinkedNode fast=head;
 		LinkedNode tmp=head.next;
-		while(fast!=null && fast.next!=null){
+		while(fast.next!=null && fast.next.next!=null){
 			fast=fast.next.next;
-			LinkedNode helper=tmp.next	
-			tmp = slow
-			slow=slow.next;
-			
-
-
-
-
+			LinkedNode helper=tmp.next;	
+			tmp.next = slow;
+			slow=tmp;
+			tmp=helper;
+			}
+		LinkedNode p1=null;
+		LinkedNode p2=null;
+		if(fast.next==null){
+			p2=tmp;p1=slow.next;}
+		if(fast.next.next==null){
+			p2=tmp;p1=slow;}
+		LinkedNode f1=p1;
+		LinkedNode f2=p2;
+		while( f2.next!=null && f2!=null){
+			if(f1.data!=f2.data) return false;
+			f2=f2.next;
+			LinkedNode helper = f1.next;
+			f1.next.next = f1;
+			f1=helper;
+			}
+		if(slow!=p1) p1.next = slow;
+		slow.next=p2;
+ 		return true;
+}
 
 /*differnt approach , reverse the linked list and then compare the origin one with the reversed one ,space complexity */
    public static LinkedNode reverseList(LinkedNode head){
