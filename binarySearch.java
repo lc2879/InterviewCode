@@ -19,3 +19,13 @@ public static int binarySearch(int a [], int x){
 	return -1;
 }	
 
+/*nearest node */
+public static int binarySearch(Node root, int n){
+		if(root==null) return -1;
+		Node pRet=null;
+		if(root.value>n) pRet=binarySearch(root.left,n);
+		else		 pRet=binarySearch(root.right,n);
+		if(pRet!=-1) return pRet;
+		if(root.value>n) return root.value;
+		return -1;
+	}
