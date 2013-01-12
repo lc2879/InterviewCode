@@ -19,7 +19,7 @@ public static int binarySearch(int a [], int x){
 	return -1;
 }	
 
-/*nearest node */
+/*nearest node,using recursive approach */
 public static int binarySearch(Node root, int n){
 		if(root==null) return -1;
 		Node pRet=null;
