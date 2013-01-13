@@ -1,8 +1,9 @@
-public static void revLinkedList (LinkedNode head, int len){
-    if(head==null) return;
-    if(len ==0)return ;
-    while(len>0){
-    
-
-
-    }
+public static void revListBybits (LinkedNode head, int len){
+	int j = n-1;
+	for (int i = 0; i < j; i++,j--)
+	{
+		a[i] = a[i]^a[j];
+		a[j] = a[i]^a[j];
+		a[i] = a[i]^a[j];
+	}
+}
