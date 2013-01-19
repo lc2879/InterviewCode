@@ -20,7 +20,7 @@ public Boolean isConnected(Graph g,gNode start, gNode end){
        }
         start.state=visiting;
         q.add(start);
-        gNode tmp= new gNode();
+        gNode u= new gNode();
 	while(!q.isEmpty){
 		u=q.removeFirst();
 	       if(u!=null){
