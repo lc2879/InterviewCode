@@ -22,8 +22,8 @@ public static Boolean isBSTree1(Node root){
 if(root==null) return true;
 Node current = root;
 Stack<Node> nodes= new Stack<Node>();
-nodes.push(current);
-current=current.left;
+//nodes.push(current);
+//current=current.left;
 while(!nodes.isEmpty()||current!=null){   // take care of the root
 		while(current!=null){
 			nodes.push(current);
