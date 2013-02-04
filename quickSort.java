@@ -20,3 +20,9 @@ public static void quickSort(int [] a, int low,int high){
     quickSort(a,low,lt-1);
     quickSort(a,gt+1,high);
 }
+
+/*finding the kth largest number in the array*/
+public static int kth(int [] a, int k){
+    if(a==null) return -1;
+    if(k>a.length-1) return -1;
+    while
