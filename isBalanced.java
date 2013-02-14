@@ -7,3 +7,6 @@ public class isBalanced{
          return Math.max(lHight,rHight)+1;
 }
 }
+
+
+//map reduce problems should be given more attention
