@@ -19,4 +19,32 @@ public Boolean split(String sq){
 		return true;
 	}
 return false;
+i
+
+
+bool isSegmented(string s, unordered_set<string> &dict) {
+    int len = s.length();
+    if(len < 1) return false;
+
+    bool **seg = new bool*[len];
+    for(int i = 0; i < len; ++i) seg[i] = new bool[len-i];
+
+    for(int seg_len = 1; seg_len <= len; ++seg_len) {
+        for(int i = 0; i <= len-seg_len; ++i) {
+            seg[i][seg_len-1] = false;
+            if(dict.find(s.substr(i, seg_len)) != dict.end()) {
+                seg[i][seg_len-1] = true;
+                continue;
+            }
+            for(int j = 1; j < seg_len; ++j) {
+                if(seg[i][j-1] && seg[i+j][seg_len-j-1]) {
+                    seg[i][seg_len-1] = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    return seg[0][len-1];
+}
 	
