@@ -58,3 +58,39 @@ int divide(int numerator, int denominator) {
 
  return quotient; 
 }
+//over flow proof
+
+01.class Solution {  
+02.public:  
+03.    int divide(int dividend, int divisor) {  
+04.        int sign = 1;  
+05.        if(dividend < 0)  
+06.            sign *= -1;  
+07.        if(divisor < 0)  
+08.            sign *= -1;  
+09.  
+10.        long long big = abs((long long)dividend);  
+11.        long long small = abs((long long)divisor);  
+12.        long long temp = small;  
+13.        long long midres = 1;  
+14.        while(temp < big)  
+15.        {  
+16.            temp <<= 1;  
+17.            midres <<= 1;  
+18.        }  
+19.  
+20.        int ret = 0;  
+21.        while(temp >= small)  
+22.        {  
+23.            while(big >= temp)  
+24.            {  
+25.                big -= temp;  
+26.                ret += midres;  
+27.            }  
+28.            temp >>= 1;  
+29.            midres >>= 1;  
+30.        }  
+31.        return ret*sign;  
+32.    }  
+33.};  
+
