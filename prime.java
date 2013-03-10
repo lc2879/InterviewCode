@@ -20,3 +20,5 @@ public static Boolean isPrime(int [] a, int num){
 	    return false;
 	return true;
     }
+
+}

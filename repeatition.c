@@ -28,11 +28,7 @@ break; // break from the for loop
 
 return i; // index of the first repeation
 
-
-
 /* I prefer returning the index instead of the element itself.
-
-
 
 return a [ i ]; // first repeated element
 
