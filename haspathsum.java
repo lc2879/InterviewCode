@@ -25,4 +25,45 @@ bool hasPathSum(struct node* node, int sum)
     return ans;
   }
 }
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        ArrayList<ArrayList<Integer>> resultList = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> tempList = new ArrayList<Integer>();
+        if(root == null) return resultList;
+        pathSumHelper(root, sum, resultList, tempList);
+        return resultList;
+    }
 
+    public void pathSumHelper(TreeNode root, int target, ArrayList<ArrayList<Integer>> resultList, ArrayList<Integer> tempList){
+
+        if(root.left == null && root.right == null){
+            if(root.val == target){
+                tempList.add(root.val);
+                resultList.add(new ArrayList<Integer>(tempList));
+                tempList.remove(tempList.size()-1);
+            }
+            return;
+        }
+        if(root.left != null){
+            tempList.add(root.val);
+            pathSumHelper(root.left, target - root.val, resultList, tempList);
+            tempList.remove(tempList.size()-1);
+        }
+        if(root.right != null){
+            tempList.add(root.val);
+            pathSumHelper(root.right, target - root.val, resultList, tempList);
+            tempList.remove(tempList.size()-1);
+        }
+    }
+}
