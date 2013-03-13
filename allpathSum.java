@@ -29,3 +29,21 @@ if(root.left==null && root.right==null)
 	root.right.right.value = 9;
 	int xx=sumNumbers(root);
 	System.out.println(xx);
+
+
+
+
+public class Solution {
+    public int sumNumbers(TreeNode root) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        return dfs(root,0);
+    }
+    public int dfs(TreeNode node, int sum){
+        if(node == null) return 0;
+        int res =node.val+sum*10;
+        if(node.left==null && node.right==null) return res;
+        return dfs(node.left,res) + dfs(node.right, res);
+    }
+}
+

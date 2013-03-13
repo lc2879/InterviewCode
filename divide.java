@@ -1,3 +1,4 @@
+w
 int division(int tempdividend, int tempdivisor) {
 
      int quotient = 1;
@@ -93,4 +94,43 @@ int divide(int numerator, int denominator) {
 31.        return ret*sign;  
 32.    }  
 33.};  
+i
 
+
+
+//Be careful of corner cases.
+class Solution {
+    public int divide(int dividend, int divisor) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        int max = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
+
+        //handle negative
+        boolean neg = false;
+        if(dividend < 0) neg = !neg;
+        if(divisor < 0) neg = !neg;
+
+        //change dividend and divisor to positive long, handle min values
+        long a = Math.abs(dividend);
+        if(dividend == min) a = (long)max+1;//explicit type casting needed here
+        long b = Math.abs(divisor);
+        if(divisor == min) b = (long)max+1;
+
+        long result = 0;
+        while(a >= b){
+            long c = b;
+            long tempResult = 1;
+            while(c <= a){
+                c <<= 1;
+                tempResult <<= 1;
+            }
+            c >>= 1;
+            tempResult >>= 1;
+            result += tempResult;
+            a -= c;
+        }
+        if(neg) result = -result;
+        return (int)result;
+    }
+}
