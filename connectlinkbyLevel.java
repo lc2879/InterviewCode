@@ -125,4 +125,28 @@ void connect(struct node* p)
 }
  
 
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        if(root==null) return;
+        if(root.left!=null)
+            root.left.next = root.right==null?getNext(root):root.right;
+        if(root.right!=null)
+            root.right.next = getNext(root);
+        connect(root.right);
+        connect(root.left);
+    }
+    public  TreeLinkNode getNext(TreeLinkNode node){
+        TreeLinkNode curr = node;
+        while(curr.next!=null){
+            curr=curr.next;
+            if(curr.left!=null)
+                return curr.left;
+            if(curr.right!=null)
+                return curr.right; 
+        }
+        return null;
+    }
+}
 
