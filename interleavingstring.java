@@ -41,9 +41,11 @@ c class Solution {
 10           
 11         f[0][0] = true;
 12         for(int i = 1; i <= s1.size(); i++)
-13             f[i][0] = f[i-1][0] && (s3[i-1] == s1[i-1]);14             
+13             f[i][0] = f[i-1][0] && (s3[i-1] == s1[i-1]);
+14             
 15         for(int j = 1; j <= s2.size(); j++)
-16             f[0][j] = f[0][j-1] && (s3[j-1] == s2[j-1]);17             
+16             f[0][j] = f[0][j-1] && (s3[j-1] == s2[j-1]);
+17             
 18         for(int i = 1; i <= s1.size(); i++)
 19             for(int j = 1; j <= s2.size(); j++)
 20                 f[i][j] = (f[i][j-1] && s2[j-1] == s3[i+j-1]) || (f[i-1][j] && s1[i-1] == s3[i+j-1]);
